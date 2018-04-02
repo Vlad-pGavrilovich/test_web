@@ -5,10 +5,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
+    @Styles.Render("~/bundles/bootstrap")
 </head>
 <body>
-    <div>
+    <div class="container body-content">
         @RenderBody()
+        <hr />
+        @Html.Partial("_Footer")
     </div>
 </body>
 </html>

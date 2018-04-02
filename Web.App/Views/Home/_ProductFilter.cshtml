@@ -1,0 +1,35 @@
+﻿@model Web.App.ViewModels.Product.ProductFilterViewModel
+<div class="row">
+    <div class="col-sm-4">
+        @Html.DisplayNameFor(model => model.SearchName)
+        @Html.EditorFor(model => model.SearchName)
+    </div>
+    <div>
+        @Html.DisplayNameFor(model => model.CategoryId)
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Select Category
+                <span class="caret"></span>
+            </button>
+            <ul id="category_dropdown" class="dropdown-menu">
+                @*<li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>*@
+            </ul>
+        </div>
+    </div>
+    <div>
+        @Html.DisplayNameFor(model => model.CountryId)
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Select Origin
+                <span class="caret"></span>
+            </button>
+            <ul id="country_dropdown" class="dropdown-menu">
+                @*<li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>*@
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿namespace Web.App.ViewModels.Product
+﻿namespace Web.App.ViewModels.Products
 {
     public class ProductFilterViewModel
     {

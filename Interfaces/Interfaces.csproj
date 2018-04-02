@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IGenericService.cs" />
     <Compile Include="IProductService.cs" />
+    <Compile Include="PagingFilteringOrderingOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

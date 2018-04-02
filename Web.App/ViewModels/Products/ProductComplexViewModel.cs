@@ -1,26 +1,26 @@
 ﻿using Web.App.ViewModels.Common;
 
-namespace Web.App.ViewModels.Product
+namespace Web.App.ViewModels.Products
 {
     public class ProductComplexViewModel
     {
         public ProductComplexViewModel()
         {
-            ProductPagingViewModel = new PagingViewModel
+            PagingViewModel = new PagingViewModel
             {
                 CurrentPage = 0
             };
             ProductFilterViewModel = new ProductFilterViewModel();
-            ProductOrderByViewModel = new OrderByViewModel
+            OrderByViewModel = new OrderByViewModel
             {
-                Column = "Name"
+                Column = "ByName"
             };
         }
 
         public ProductFilterViewModel ProductFilterViewModel { get; private set; }
 
-        public PagingViewModel ProductPagingViewModel { get; private set; }
+        public PagingViewModel PagingViewModel { get; private set; }
 
-        public OrderByViewModel ProductOrderByViewModel { get; private set; }
+        public OrderByViewModel OrderByViewModel { get; private set; }
     }
 }

@@ -49,7 +49,8 @@
   <ItemGroup>
     <Compile Include="GenericQueryHelper.cs" />
     <Compile Include="GenericService.cs" />
-    <Compile Include="ProductService.cs" />
+    <Compile Include="Products\ProductOrderByOptions.cs" />
+    <Compile Include="Products\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

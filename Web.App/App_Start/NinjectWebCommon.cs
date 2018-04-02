@@ -3,21 +3,18 @@
 
 namespace Web.App.App_Start
 {
-    using System;
-    using System.Text;
-    using System.Web;
     using AutoMapper;
     using Data.Access;
-    using Data.Access.Models;
     using Interfaces;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Activation;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
-    using ServiceLayer;
-    using Web.App.ViewModels.Product;
+    using ServiceLayer.Products;
+    using System;
+    using System.Web;
+    using ViewModels.Products.Profiles;
 
     public static class NinjectWebCommon
     {
@@ -79,42 +76,11 @@ namespace Web.App.App_Start
             Mapper.Initialize(config =>
             {
                 config.ConstructServicesUsing(type => context.Kernel.Get(type));
-                config.CreateMap<Product, ProductViewModel>()
-                    .ForMember(dest => dest.Category, opt => opt.MapFrom(x => x.Category.Name))
-                    .ForMember(dest => dest.Country, opt => opt.MapFrom(x => x.Country.Name))
-                    .ForMember(dest => dest.PriceDetails, opt => opt.MapFrom(x => BuildPriceDetail(x.PriceDetail, x.Discount)))
-                    .ForMember(dest => dest.Discount, opt => opt.MapFrom(x => BuidDiscount(x.Discount)));
+                config.AddProfile(new ProductToProductDtoProfile());
+                config.AddProfile(new PagingFilteringOrderingOptionsProfile());
             });
             Mapper.AssertConfigurationIsValid();
             return Mapper.Instance;
-        }
-
-        private static object BuidDiscount(DiscountGroup discount)
-        {
-            StringBuilder sb = new StringBuilder()
-                .Append($"{discount.Discount}%");
-            if (discount.FinishDate.HasValue)
-            {
-                sb.Append(" until ")
-                    .Append(discount.FinishDate.ToString());
-            }
-            return sb.ToString();
-        }
-
-        private static string BuildPriceDetail(PriceDetail priceDetail, DiscountGroup dg)
-        {
-            StringBuilder sb = new StringBuilder();
-            if (dg == null)
-            {
-                sb.Append(priceDetail.Price);
-            }
-            else
-            {
-                sb.Append($"{(priceDetail.Price * (1 - dg.Discount / 100)).ToString("0.00")} instead of {priceDetail.Price}");
-            }
-            sb.Append("$ per ")
-                .Append(priceDetail.ProductPriceType == ProductPriceType.ForOne ? "1 item" : "100g");
-            return sb.ToString();
         }
     }
 }

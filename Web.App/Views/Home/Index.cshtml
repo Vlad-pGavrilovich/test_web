@@ -1,8 +1,5 @@
-﻿@model Web.App.ViewModels.Product.ProductListCombinedViewModel
-
-@{
-    Layout = null;
-}
+﻿@using Web.App.ViewModels.Product
+@model IEnumerable<ProductViewModel>
 
 <!DOCTYPE html>
 
@@ -16,26 +13,16 @@
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
-        @*<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PriceDetails)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Country</th>
+            <th>Category</th>
+            <th>Discount</th>
             <th></th>
-        </tr>*@
+        </tr>
     
-    @foreach (var item in Model.ProductList) {
+    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
