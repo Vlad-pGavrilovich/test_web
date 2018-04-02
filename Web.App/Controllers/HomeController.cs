@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Web.App.ViewModels.Products;
 
 namespace Web.App.Controllers
 {
@@ -7,7 +6,7 @@ namespace Web.App.Controllers
     {
         public ActionResult Index()
         {
-            return View(new ProductComplexViewModel());
+            return View();
         }
     }
 }
