@@ -20,8 +20,17 @@ namespace Web.App.App_Start
 
             // Code removed for clarity.
 
-            bundles.Add(new StyleBundle("~/bundles/bootstrap")
-                .Include("~/Content/bootstrap.min.css"));
+            bundles.Add(new StyleBundle("~/bundles/bootstrap-content")
+                .Include("~/Content/bootstrap.min.css")
+                .Include("~/Content/bootstrap-select.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-scripts")
+                .Include("~/Scripts/jquery-{version}.js")
+                .Include("~/Scripts/jquery-{version}.slim.min.js")
+                .Include("~/Scripts/umd/popper.js")
+                .Include("~/Scripts/umd/popper-utils.js")
+                .Include("~/Scripts/bootstrap.min.js")
+                .Include("~/Scripts/bootstrap-select.min.js"));
         }
     }
 }
