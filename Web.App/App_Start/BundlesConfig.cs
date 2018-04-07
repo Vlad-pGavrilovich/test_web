@@ -22,7 +22,8 @@ namespace Web.App.App_Start
 
             bundles.Add(new StyleBundle("~/bundles/bootstrap-content")
                 .Include("~/Content/bootstrap.min.css")
-                .Include("~/Content/bootstrap-select.min.css"));
+                .Include("~/Content/bootstrap-select.min.css")
+                .Include("~/Content/bootstrap-slider.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap-scripts")
                 .Include("~/Scripts/jquery-{version}.js")
@@ -30,7 +31,8 @@ namespace Web.App.App_Start
                 .Include("~/Scripts/umd/popper.js")
                 .Include("~/Scripts/umd/popper-utils.js")
                 .Include("~/Scripts/bootstrap.min.js")
-                .Include("~/Scripts/bootstrap-select.min.js"));
+                .Include("~/Scripts/bootstrap-select.min.js")
+                .Include("~/Scripts/bootstrap-slider.min.js"));
         }
     }
 }
